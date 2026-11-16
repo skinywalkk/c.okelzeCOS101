@@ -14,12 +14,12 @@ fn main() {
     for student in &students {
         println!("{:<15} {:<15} {:<15} {:<5}", student.0, student.1, student.2, student.3);
     }
-    
+
     let mut file = File::create("students.txt").unwrap();
     writeln!(file, "{:<15} {:<15} {:<15} {:<5}", "Student Name", "Matric Number", "Department", "Level").unwrap();
-    writeln!(file, "{}", "-".repeat(60)).unwrap();
+    writeln!(file, "{}", "-".repeat(60)).expect("error");
     for student in &students {
-        writeln!(file, "{:<15} {:<15} {:<15} {:<5}", student.0, student.1, student.2, student.3).unwrap();
+        writeln!(file, "{:<15} {:<15} {:<15} {:<5}", student.0, student.1, student.2, student.3).expect("error");
     }
 
     println!("File 'students.txt' created successfully!");
